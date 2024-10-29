@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Embedded Interface</title>
+    <title>Fullscreen Responsive Interface</title>
     <style>
         /* Basic CSS reset */
         * {
@@ -12,26 +12,22 @@
             box-sizing: border-box;
         }
 
-        /* Flexbox container to center content */
+        /* Set body and html to occupy full viewport */
         body, html {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
 
-        /* Responsive iframe container */
+        /* Fullscreen responsive iframe container */
         .iframe-container {
-            width: 100%;
-            max-width: 1200px;
-            height: 70vh;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
         }
 
         .iframe-container iframe {
@@ -40,10 +36,11 @@
             border: none;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 600px) {
+        /* Prevent iframe resize on mobile keyboard open */
+        @media (max-height: 600px) {
             .iframe-container {
-                height: 60vh;
+                height: 100vh;
+                position: fixed;
             }
         }
     </style>
@@ -51,7 +48,7 @@
 <body>
 
     <div class="iframe-container">
-        <iframe src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" allowfullscreen></iframe>
     </div>
 
 </body>
