@@ -1,0 +1,65 @@
+import React from 'react';
+import { Github } from 'lucide-react';
+
+const ChatbotInterface = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Bar */}
+      <nav className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex items-center">
+              <h1 className="text-xl font-bold text-gray-900">AI Assistant</h1>
+            </div>
+            <div className="flex items-center">
+              <a
+                href="https://github.com/yourusername/your-repo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white rounded-lg shadow">
+          {/* Header Section */}
+          <div className="px-6 py-4 border-b border-gray-200">
+            <h2 className="text-lg font-medium text-gray-900">Chat with AI</h2>
+            <p className="mt-1 text-sm text-gray-500">
+              Ask questions and get intelligent responses in real-time
+            </p>
+          </div>
+
+          {/* Chatbot Container */}
+          <div className="p-6">
+            <div className="rounded-lg border border-gray-200 overflow-hidden">
+              <iframe
+                src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881"
+                width="100%"
+                height="700px"
+                frameBorder="0"
+                className="w-full"
+                title="AI Chatbot"
+              />
+            </div>
+          </div>
+
+          {/* Footer Section */}
+          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <p className="text-sm text-gray-500 text-center">
+              Powered by GPT Nexus • {new Date().getFullYear()}
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default ChatbotInterface;
