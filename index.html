@@ -42,14 +42,24 @@
     </div>
 
     <script>
+        // Function to adjust iframe height to full viewport
         function adjustIframeHeight() {
             const iframe = document.getElementById('chatIframe');
             iframe.style.height = window.innerHeight + 'px';
         }
 
-        // Adjust iframe on load and resize events
+        // Function to zoom out after input field loses focus
+        function resetZoom() {
+            window.scrollTo(0, 0);  // Scroll to the top to ensure full viewport
+            adjustIframeHeight();    // Reapply full viewport height
+        }
+
+        // Adjust iframe on load, resize, and after input blur
         window.addEventListener('load', adjustIframeHeight);
         window.addEventListener('resize', adjustIframeHeight);
+
+        // Add blur event to reset zoom when input in iframe loses focus
+        document.getElementById('chatIframe').contentWindow.addEventListener('blur', resetZoom);
     </script>
 
 </body>
