@@ -1,1 +1,58 @@
-<iframe src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" width="100%" height="700px" frameborder="0"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Embedded Interface</title>
+    <style>
+        /* Basic CSS reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Flexbox container to center content */
+        body, html {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive iframe container */
+        .iframe-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .iframe-container {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe-container">
+        <iframe src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+</body>
+</html>
