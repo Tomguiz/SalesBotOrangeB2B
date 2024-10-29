@@ -1,1 +1,71 @@
-<script src="https://api.nexusgpt.io/api/integrations/755e603c-c981-47d0-8132-8a41d0d53881/widget.js" data-integration-id="755e603c-c981-47d0-8132-8a41d0d53881"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Detail Embedded Chat Interface</title>
+    <style>
+        /* Basic CSS reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fullscreen iframe container */
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .iframe-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Ensure iframe scales to full size of container */
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            max-height: 100vh;
+            max-width: 100vw;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe-container">
+        <iframe id="chatIframe" src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // Function to ensure iframe adjusts to viewport changes
+        function adjustIframeHeight() {
+            const iframe = document.getElementById('chatIframe');
+            iframe.style.height = window.innerHeight + 'px';
+            iframe.style.width = window.innerWidth + 'px';
+        }
+
+        // Adjust iframe on load and resize to keep full details in view
+        window.addEventListener('load', adjustIframeHeight);
+        window.addEventListener('resize', adjustIframeHeight);
+
+        // Reset zoom behavior after typing interactions
+        window.addEventListener('blur', () => {
+            window.scrollTo(0, 0);
+            adjustIframeHeight();
+        });
+    </script>
+
+</body>
+</html>
