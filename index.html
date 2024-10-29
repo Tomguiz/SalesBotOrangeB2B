@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Chat Interface</title>
+    <title>Responsive Embedded Chat Interface</title>
     <style>
         /* Basic CSS reset */
         * {
@@ -12,22 +12,20 @@
             box-sizing: border-box;
         }
 
-        /* Set body and html to occupy full viewport */
+        /* Fullscreen iframe container */
         body, html {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: #f0f0f0;
         }
 
-        /* Fullscreen iframe container */
         .iframe-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100vw;
-            height: calc(100vh - 60px); /* Adjust for typing bar height */
+            height: 100vh;
         }
 
         .iframe-container iframe {
@@ -35,43 +33,24 @@
             height: 100%;
             border: none;
         }
-
-        /* Typing bar styling */
-        .typing-bar {
-            width: 100%;
-            height: 60px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            background-color: #ffffff;
-            border-top: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .typing-bar input {
-            width: 100%;
-            height: 40px;
-            padding: 0 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            outline: none;
-        }
     </style>
 </head>
 <body>
 
     <div class="iframe-container">
-        <iframe src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" allowfullscreen></iframe>
+        <iframe id="chatIframe" src="https://gpt.nexus/Embed/755e603c-c981-47d0-8132-8a41d0d53881" allowfullscreen></iframe>
     </div>
 
-    <!-- Typing bar at the bottom -->
-    <div class="typing-bar">
-        <input type="text" placeholder="Type a message..." />
-    </div>
+    <script>
+        function adjustIframeHeight() {
+            const iframe = document.getElementById('chatIframe');
+            iframe.style.height = window.innerHeight + 'px';
+        }
+
+        // Adjust iframe on load and resize events
+        window.addEventListener('load', adjustIframeHeight);
+        window.addEventListener('resize', adjustIframeHeight);
+    </script>
 
 </body>
 </html>
